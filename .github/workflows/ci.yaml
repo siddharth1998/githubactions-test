@@ -3,13 +3,13 @@ name: Testing continous integration
 on: [push,pull_request]
 
 jobs:
-	run-tests:
+	runtest:
 		strategy:
 			fail-fast: false
 			matrix:
 				os: [ubuntu-latest,macos-latest]
 				python-version: ["3.9", "3.10", "3.11"]
-		
+		name: Test
 		runs-on: ${{matrix.os}}
 		steps:
 			- name: checkout code
