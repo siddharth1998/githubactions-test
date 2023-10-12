@@ -1,9 +1,7 @@
 name: Testing continous integration 
 
-on: 
-	push:
-	pull_request:
-	
+on: [push,pull_request]
+
 jobs:
 	run-tests:
 		strategy:
