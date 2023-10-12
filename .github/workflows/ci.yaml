@@ -15,7 +15,7 @@ jobs:
    - name: checkout code
      uses: actions/checkout@v3
    - name: setup python 
-     uses: actions/setup-actions@v4
+     uses: actions/setup-python@v4
      with:
       python-version: ${{matrix.python-version}}
    - name: Install all dependencies 
