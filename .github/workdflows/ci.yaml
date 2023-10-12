@@ -1,0 +1,35 @@
+name: Testing continous integration 
+
+on : 
+	push:
+	pull_request:
+
+	jobs:
+		run-tests:
+			strategy:
+				fail-fast:false
+				matrix:
+					os: [ubuntu-latest,macos-latest]
+					python-version: ["3.9", "3.10", "3.11"]
+
+			name: Test the name
+			runs-on: ${{matrix.os}}
+
+
+			steps:
+				- name: checkout code
+					uses: actions/checkout@v3
+
+
+				-	name: setup python 
+					uses: actions/setup-actions@v4
+					with:
+						python-version: {{matrix.python-version}}
+					
+				- name: Install all dependencies 
+					run: python -m pip install pytest . 
+				
+				- name: Run the test
+					run: pytest
+				
+
