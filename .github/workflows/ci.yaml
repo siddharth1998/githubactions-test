@@ -3,7 +3,7 @@ name: Testing continous integration
 on: [push,pull_request]
 
 jobs:
-	run-tests:
+	runtest:
 		strategy:
 			fail-fast: false
 			matrix:
